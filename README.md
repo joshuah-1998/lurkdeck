@@ -108,41 +108,6 @@ Windows 10 or 11 (64-bit), or macOS 11 Big Sur or later on an Apple silicon or I
 
 Lurkdeck has no analytics, tracking or servers of its own. It talks only to Reddit, to Reddit's media hosts, and to GitHub for the one time engine download and the optional video sound helper. Your settings, tabs, schedules and download history stay on your computer, in the Lurkdeck Files folder on Windows or in `~/Library/Application Support/Lurkdeck` on Mac. Reddit sign-ins are encrypted with Windows' built-in data protection or kept in your Mac's Keychain, and never leave your computer.
 
-## Building from source
-
-The repository contains two parts:
-
-- `app/` is Lurkdeck itself: the interface (`index.html`), the Electron main process (`main.js`, `preload.js`) and the automation engine (`automation.js`).
-- `launcher/` is the Go program that becomes Lurkdeck.exe on Windows and the executable inside Lurkdeck.app on Mac. It embeds the `app/` files, downloads and verifies the engine on first launch, and starts Lurkdeck.
-
-To run the app directly during development, install [Node.js](https://nodejs.org), then from the repository folder run:
-
-```
-npx electron@33.2.1 app --portable-data=./data
-```
-
-To build the launchers, install [Go](https://go.dev) 1.22 or newer, copy the contents of `app/` into `launcher/appfiles/`, and run these from the `launcher` folder.
-
-Windows:
-
-```
-GOOS=windows GOARCH=amd64 go build -trimpath -ldflags "-H=windowsgui -s -w" -o Lurkdeck.exe .
-```
-
-Mac, as one universal executable for Apple silicon and Intel:
-
-```
-GOOS=darwin GOARCH=arm64 go build -trimpath -ldflags "-s -w" -o Lurkdeck-arm64 .
-GOOS=darwin GOARCH=amd64 go build -trimpath -ldflags "-s -w" -o Lurkdeck-x64 .
-lipo -create -output Lurkdeck Lurkdeck-arm64 Lurkdeck-x64
-```
-
-Place that `Lurkdeck` executable in `Lurkdeck.app/Contents/MacOS/`, alongside an `Info.plist` and `Lurkdeck.icns` in `Contents/Resources`.
-
-**Self-contained Mac app with Xcode.** Lurkdeck can also be built in Xcode as a Lurkdeck.app with the engine built in, so there's no first launch download. The Xcode project replaces its placeholder executable with Electron, adds Lurkdeck's files, and signs every part of the app with your certificate. A Notarized Release scheme then signs with your Developer ID, notarizes with Apple, and produces a disk image and zip that open on any Mac without a warning. That route needs Xcode 15 or newer and, for notarizing, a paid Apple Developer Program membership.
-
-Building is permitted for your own personal use under the license below. Sharing modified versions is not.
-
 ## Support
 
 Lurkdeck is free. If it's useful to you, you can support its development on [Buy Me a Coffee](https://www.buymeacoffee.com/joshuah1998).
