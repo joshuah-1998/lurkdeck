@@ -116,6 +116,6 @@ Lurkdeck is free. If it's useful to you, you can support its development on [Buy
 
 Copyright 2026 Joshua H.
 
-Lurkdeck is free for personal, noncommercial use under the [PolyForm Strict License 1.0.0](https://polyformproject.org/licenses/strict/1.0.0/). You may use it, but you may not modify it or distribute copies of it. See the [LICENSE](LICENSE) file for the full terms. The Electron engine Lurkdeck downloads is covered by its own open source licenses.
+Lurkdeck is free for personal, noncommercial use under the [PolyForm Strict License 1.0.0](https://polyformproject.org/licenses/strict/1.0.0). You may use it, but you may not modify it or distribute copies of it. See the [LICENSE](LICENSE) file for the full terms. The Electron engine Lurkdeck downloads is covered by its own open source licenses.
 
 Lurkdeck is an independent project and is not affiliated with or endorsed by Reddit, Inc.
