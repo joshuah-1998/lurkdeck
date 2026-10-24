@@ -111,6 +111,7 @@ Lurkdeck has no analytics, tracking or servers of its own. It talks only to Redd
 ## Support
 
 Lurkdeck is free. If it's useful to you, you can support its development on [Buy Me a Coffee](https://www.buymeacoffee.com/joshuah1998).
+Email me here: joshuah-support@proton.me
 
 ## License
 
